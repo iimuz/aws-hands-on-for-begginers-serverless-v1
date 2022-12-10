@@ -51,6 +51,7 @@ RUN set -x \
   && groupadd --gid $USER_GID $USERNAME \
   && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
 
+ENV SAM_CLI_TELEMETRY=0
 COPY --from=sam /usr/local/aws-sam-cli /usr/local/aws-sam-cli
 RUN set -x \
   && : "Install SAM" \
