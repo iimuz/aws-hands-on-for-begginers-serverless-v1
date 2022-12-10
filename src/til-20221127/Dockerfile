@@ -72,9 +72,22 @@ FROM base AS development
 
 ARG DOCKER_GID=1001
 
+ENV DEBIAN_FRONTEND=noninteractive
 USER root
 
 RUN set -x \
+  && : "Reduce build warning" \
+  && apt-get update -qq \
+  && apt-get install -qq -y --no-install-recommends apt-utils \
+  && apt-get clean -qq \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN set -x \
+  && : "Install small tools" \
+  && apt-get update -qq \
+  && apt-get install -qq -y --no-install-recommends git \
+  && apt-get clean -qq \
+  && rm -rf /var/lib/apt/lists/*
 
 # DockerはインストールするがDocker outside of dockerとするためcontainerdなどはインストールしない
 RUN set -x \
@@ -101,4 +114,5 @@ RUN set -x \
   && apt-get clean -qq \
   && rm -rf /var/lib/apt/lists/*
 
+ENV DEBIAN_FRONTEND=dialog
 USER $USERNAME
