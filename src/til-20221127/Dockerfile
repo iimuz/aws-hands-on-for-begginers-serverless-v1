@@ -75,8 +75,10 @@ ARG DOCKER_GID=1001
 USER root
 
 RUN set -x \
-  # && DOCKER_VERSION_STRING=5:20.10.13~3-0~ubuntu-jammy \
-  && : "Set up the repository" \
+
+# DockerはインストールするがDocker outside of dockerとするためcontainerdなどはインストールしない
+RUN set -x \
+  && : "Install Docker" \
   && apt-get update -qq \
   && apt-get install -qq -y --no-install-recommends\
   ca-certificates \
@@ -90,9 +92,7 @@ RUN set -x \
   && : "Install docker engine" \
   && apt-get update -qq \
   && apt-get install -qq -y --no-install-recommends \
-  docker-ce \
   docker-ce-cli \
-  containerd.io \
   docker-compose-plugin \
   && : "Set docker group" \
   && groupadd -g $DOCKER_GID dood \
