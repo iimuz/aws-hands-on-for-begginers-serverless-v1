@@ -18,6 +18,26 @@ RUN set -x \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
+FROM ubuntu:20.04 AS aws-cli
+
+RUN set -x \
+  && : "Install AWS CLI" \
+  && apt-get update -qq \
+  && apt-get install -qq -y --no-install-recommends \
+  apt-utils \
+  ca-certificates \
+  curl \
+  unzip \
+  && awsCLIVersion=2.9.6 \
+  && awsCLIArchive=awscliv2.zip \
+  && awsCLIExpandDir=aws \
+  && curl --silent "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${awsCLIVersion}.zip" -o $awsCLIArchive \
+  && unzip -q $awsCLIArchive -d $awsCLIExpandDir \
+  && ./$awsCLIExpandDir/aws/install \
+  && rm -r $awsCLIArchive $awsCLIExpandDir \
+  && apt-get clean -qq \
+  && rm -rf /var/lib/apt/lists/*
+
 FROM ubuntu:20.04 AS base
 
 ARG USERNAME=vscode
@@ -35,6 +55,11 @@ COPY --from=sam /usr/local/aws-sam-cli /usr/local/aws-sam-cli
 RUN set -x \
   && : "Install SAM" \
   && ln -s /usr/local/aws-sam-cli/current/bin/sam /usr/local/bin/sam
+
+COPY --from=aws-cli /usr/local/aws-cli /usr/local/aws-cli
+RUN set -x \
+  && : "Install AWS CLI" \
+  && ln -s /usr/local/aws-cli/v2/current/bin/aws /usr/local/bin/aws
 
 ENV DEBIAN_FRONTEND=dialog
 
