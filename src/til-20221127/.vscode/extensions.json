@@ -1,10 +1,17 @@
 {
   "recommendations": [
-    "DavidAnson.vscode-markdownlint",
+    // === aws ===
+    "AmazonWebServices.aws-toolkit-vscode",
+    // === docker ===
     "ms-azuretools.vscode-docker",
+    // === markdown ===
+    "bierner.markdown-preview-github-styles",
+    "DavidAnson.vscode-markdownlint",
+    "esbenp.prettier-vscode",
+    "shd101wyy.markdown-preview-enhanced",
+    // === python ===
     "ms-python.python",
     "ms-python.vscode-pylance",
-    "njpwerner.autodocstring",
-    "shd101wyy.markdown-preview-enhanced",
+    "njpwerner.autodocstring"
   ]
 }
