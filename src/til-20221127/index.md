@@ -1,13 +1,9 @@
-# AWS Hands-on for Begginers Serverless #1
+# AWS Hands-on for Begginers Serverless
 
-[AWS Hands-on for Begginers Serverless](https://pages.awscloud.com/event_JAPAN_Hands-on-for-Beginners-Serverless-2019_LP.html)を実施した時のメモ。
+下記の 2 つを実行したときのメモ。
+1 つ目は、手動でリソースを作成する。2 つ目で SAM を利用して実施する方法を説明している。
+
+- [AWS Hands-on for Begginers Serverless #1](https://pages.awscloud.com/event_JAPAN_Hands-on-for-Beginners-Serverless-2019_LP.html)
+- [AWS Hands-on for Beginners Serverless #2](https://pages.awscloud.com/event_JAPAN_Ondemand_Hands-on-for-Beginners-Serverless-2_LP.html)
 
 ## メモ
-
-- 全てがGUIから操作するためコードなどが残らない。方法を調査して残す。
-- [AWS SAMのdeleteコマンドを試す](https://www.d-make.co.jp/blog/2021/08/21/try-aws-sam-delete-command/): SAMを使ってdeploy, deleteまでを最小限で行っていそう。
-- [AWS SAM CLI のインストール](https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
-  - docker内にsamをインストール
-  - docker環境はDooD環境にすれば対応できそう。
-  - インストール先はどこになる??マルチビルド構成でファイルを異動した方がよさそう。aptでunzipとかのインストールが必要。
-  - multi stage buildでsamをインストールしたdockerfileを作成
