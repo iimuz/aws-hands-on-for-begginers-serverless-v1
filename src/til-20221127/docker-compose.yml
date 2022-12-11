@@ -16,6 +16,9 @@ services:
       - type: bind
         source: .
         target: $PWD
+      - type: bind
+        source: $HOME/.aws
+        target: $HOME/.aws
     env_file: .env
     command: python -h
     user: $USER
