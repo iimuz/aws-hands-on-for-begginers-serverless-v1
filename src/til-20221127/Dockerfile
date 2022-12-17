@@ -1,4 +1,4 @@
-FROM debian:bullseye AS sam
+FROM debian:bullseye-slim AS sam
 
 RUN set -x \
   && : "Install SAM CLI" \
@@ -18,7 +18,7 @@ RUN set -x \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM debian:bullseye AS aws-cli
+FROM debian:bullseye-slim AS aws-cli
 
 RUN set -x \
   && : "Install AWS CLI" \
