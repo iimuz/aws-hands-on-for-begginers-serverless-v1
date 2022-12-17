@@ -13,6 +13,7 @@
   "extensions": [
     // === aws ===
     "AmazonWebServices.aws-toolkit-vscode",
+    "redhat.vscode-yaml",  // recommendation from aws toolkit
     // === docker ===
     "ms-azuretools.vscode-docker",
     // === git ===
