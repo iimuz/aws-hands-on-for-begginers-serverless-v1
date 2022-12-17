@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 AS sam
+FROM debian:bullseye AS sam
 
 RUN set -x \
   && : "Install SAM CLI" \
@@ -18,7 +18,7 @@ RUN set -x \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM ubuntu:20.04 AS aws-cli
+FROM debian:bullseye AS aws-cli
 
 RUN set -x \
   && : "Install AWS CLI" \
@@ -38,7 +38,7 @@ RUN set -x \
   && apt-get clean -qq \
   && rm -rf /var/lib/apt/lists/*
 
-FROM python:3.7-slim AS base
+FROM python:3.7-slim-bullseye AS base
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
