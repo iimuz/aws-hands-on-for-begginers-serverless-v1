@@ -38,7 +38,7 @@ RUN set -x \
   && apt-get clean -qq \
   && rm -rf /var/lib/apt/lists/*
 
-FROM ubuntu:20.04 AS base
+FROM python:3.7-slim AS base
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
@@ -100,8 +100,8 @@ RUN set -x \
   gnupg \
   lsb-release \
   && mkdir -p /etc/apt/keyrings \
-  && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg \
-  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+  && curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
   | tee /etc/apt/sources.list.d/docker.list > /dev/null \
   && : "Install docker engine" \
   && apt-get update -qq \
