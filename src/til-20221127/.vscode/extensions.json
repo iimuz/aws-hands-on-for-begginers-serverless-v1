@@ -4,6 +4,8 @@
     "AmazonWebServices.aws-toolkit-vscode",
     // === docker ===
     "ms-azuretools.vscode-docker",
+    // === git ===
+    "alefragnani.bookmarks",
     // === markdown ===
     "bierner.markdown-preview-github-styles",
     "DavidAnson.vscode-markdownlint",
@@ -11,7 +13,8 @@
     "shd101wyy.markdown-preview-enhanced",
     // === python ===
     "ms-python.python",
-    "ms-python.vscode-pylance",
-    "njpwerner.autodocstring"
+    "njpwerner.autodocstring",
+    // === vscode ===
+    "alefragnani.bookmarks",
   ]
 }
