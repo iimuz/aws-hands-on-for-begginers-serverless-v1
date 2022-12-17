@@ -1,7 +1,7 @@
 {
   "editor.detectIndentation": true,
   "workbench.colorCustomizations": {
-    "titleBar.border": "#ffffff"
+    "titleBar.border": "#edf100"
   },
   // auto time stamp
   "lpubsppop01.autoTimeStamp.filenamePattern": ".md",
