@@ -6,10 +6,8 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: translate-function-2
-      CodeUri: ./translate-function
+      CodeUri: s3://hands-on-serverless-2-til20221127/1c0062fd33e759fbca2f4facfc915774
       Handler: translate-function.lambda_handler
       Runtime: python3.7
       Timeout: 5
       MemorySize: 256
-      Policies:
-        - TranslateFullAccess
